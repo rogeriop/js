@@ -1,13 +1,26 @@
-var paciente = {peso:75, altura:1.7, nome:"Lula Molusco"};
-var imc = 0;
 
-var peso = document.getElementById("peso-1").textContent;
-var altura = document.getElementById("altura-1").textContent;
-var nome = document.getElementById("nome-1").textContent;
-
-
-if (paciente.altura !== 0) {
-    imc = paciente.peso / (paciente.altura * paciente.altura);
-} else {
-    console.log("altura tem que ser diferente de zero");
+var trs = document.getElementsByClassName("paciente");
+ 
+for(var posi = 0; posi <= trs.length - 1; posi++){
+     var nome = trs[posi].getElementsByClassName("info-nome")[0]; // pega tr do nome do paciente atual
+     var peso = trs[posi].getElementsByClassName("info-peso")[0]; // pega tr do peso do paciente atual
+     var altura = trs[posi].getElementsByClassName("info-altura")[0]; // pega tr do altura do paciente atual
+     var imc = trs[posi].getElementsByClassName("info-imc")[0]; // pega tr do imc do paciente atual
+ 
+     var paciente = {
+         nome : nome.textContent,
+         peso : peso.textContent,
+         altura : altura.textContent
+     }
+ 
+     if(paciente.altura != 0){
+         var imcDoPaciente = paciente.peso / (paciente.altura * paciente.altura);
+ 
+         imc.textContent = imcDoPaciente;
+ 
+         console.log(imcDoPaciente); // 25
+     }else{
+         console("altura tem que ser diferente de zero");
+     }
+ 
 }
