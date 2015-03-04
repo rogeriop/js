@@ -1,0 +1,5 @@
+function percorreArray (array, comportamento) {
+    
+    
+    
+}
