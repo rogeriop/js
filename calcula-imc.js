@@ -24,29 +24,36 @@ function montaPaciente (tr) {
 
 function percorreArray (array, comportamento) {
 
-    for(var posi = 0; posi <= trs.length - 1; posi++){
-    var trPaciente = trs[posi];
-    comportamento(trPaciente);
+    for(var posi = 0; posi <= array.length - 1; posi++){
+        var trPaciente = array[posi];
+        comportamento(trPaciente);
     }
 }
 
 
-
-
-
-var trs = document.getElementsByClassName("paciente");
- 
-percorreArray(trs, function(trPaciente){
-
-    var paciente = montaPaciente(trPaciente);
-    imcCalculado =  paciente.pegaImc();
-    var trImc = trPaciente.getElementsByClassName("info-imc")[0]; // pega tr do imc do paciente atual
-    trImc.textContent = imcCalculado;
-
-    console.log(imcCalculado); // 25
+function calculaTodosImcs () {
     
-    
-});
+    var trs = document.getElementsByClassName("paciente");
+
+    percorreArray(trs, function(trPaciente){
+
+        var paciente = montaPaciente(trPaciente);
+        imcCalculado =  paciente.pegaImc();
+        var trImc = trPaciente.getElementsByClassName("info-imc")[0]; // pega tr do imc do paciente atual
+        trImc.textContent = imcCalculado;
+
+        console.log(imcCalculado); // 25
+
+
+    });
+
+}
+
+var botao = document.getElementById("calcula-imcs");
+botao.addEventListener("click", calculaTodosImcs);
+botao.addEventListener("click", function(){
+    console.log("Botão que calcula IMCs foi clicado")});
+
 
 //for(var posi = 0; posi <= trs.length - 1; posi++){
 //
